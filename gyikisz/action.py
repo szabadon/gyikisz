@@ -1,11 +1,11 @@
 # - *- coding: utf- 8 - *-
 from random import randint
 from player import Player, Inventory
-
+from sys import exit
 
 class Action(object):
 
-    def end_turn(a):
+    def end_turn(self,a):
         y = raw_input('> ')
         return a
 
@@ -206,11 +206,15 @@ iszom: Meghúzod a varázsitalos palackot
                     if enemy_left > 0:
                         break
                     else:
+                        print "Sikerült, legyőzted ellenfeled!"
                         return next
             elif e_attack > p_attack:
                 print "%s megsebzett téged!" % (enemy_name)
                 Player.actual_attributes['eletero'] -= 1
                 if Player.actual_attributes['eletero'] <= 0:
+                    print "Ez nem jött össze. Legyőztek!"
+                    print "\n\t\t\t**************\n\t\t\t**Meghaltál!**\n\t\t\t**************\n"
+                    exit(1)
                     return 'x'
             else:
                 print "Döntetlen!"
@@ -262,6 +266,7 @@ iszom: Meghúzod a varázsitalos palackot
                     if sting == True:
                         return sting_t
                     else:
+                        print "Sikerült, legyőzted ellenfeled!"
                         return sting_f
             elif e_attack > p_attack:
                 print "%s megsebzett téged!" % (enemy_name)

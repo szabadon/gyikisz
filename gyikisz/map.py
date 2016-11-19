@@ -409,16 +409,10 @@ class Map(object):
     }
 
     def __init__(self, start_scene):
-        self.start_scene = start_scene # parameter request
+        self.start_scene = start_scene
 
     def next_scene(self, scene_name):
-        return Map.scenes.get(scene_name) # from a dict in Map called scenes,
-        #get the value connected to given scene_name
+        return Map.scenes.get(scene_name)
 
-    def opening_scene(self): # a function
-        return self.next_scene(self.start_scene) # for calling next_scene function
-        # with the requested parameter:
-        # call next_scene with anything given to Map('***')
-        # to get it right you need the right key from scenes dict
-        # if scenes {'x':y()} then Map('x') == y()
-        # so Engine(a_map) == Engine(CentralCorridor())
+    def opening_scene(self):
+        return self.next_scene(self.start_scene) 

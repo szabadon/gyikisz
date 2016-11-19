@@ -85,8 +85,8 @@ az elrabolt áldozatokat, de meg kell próbálnod a lehetetlent.
 Felállsz, és lesétálsz Mungóval a kikötőbe, ahol beszálltok barátod kis halász-
 bárkájába. Eloldod a csónakot, és az éljenző tömeget nézve azon gondolkozol,
 vajon visszatérsz-e ide valaha is?"""
-        this_scene = Action()
-        this_scene.end_turn('1')
+        y = raw_input('> ')
+        return('1')
 
 class Scene_1(Scene):
 
@@ -763,9 +763,7 @@ class Scene_53(Scene):
 Mivel a szemed lecsukódik, nem veszed észre, hogy a fejed felett lévő ágakról
 egy vastag inda kúszik lefelé. Lassan a nyakad köré tekeredik, és fojtogatni kezd.
 Fulladozva felébredsz, és a kardod után nyúlsz, mely a lábadnál hever.
-
 Tedd próbára a Szerencsédet!"""
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.luck('256','132')
 
@@ -4497,7 +4495,7 @@ Pihensz, amíg elég erősnek nem érzed magad ahhoz, hogy folytasd az utadat...
 \nHa megpróbálod a kardoddal kipiszkálni a Csörgőkígyót a lyukból: 5\n
 \nHa inkább óvatosan lemész a szurdokba és elindulsz nyugat felé: 119"""
         this_scene = Action()
-        return this_scene.end_turn()
+        return this_scene.choice('5','119')
 
 class Scene_365(Scene):
 
