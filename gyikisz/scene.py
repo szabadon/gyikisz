@@ -85,8 +85,8 @@ az elrabolt áldozatokat, de meg kell próbálnod a lehetetlent.
 Felállsz, és lesétálsz Mungóval a kikötőbe, ahol beszálltok barátod kis halász-
 bárkájába. Eloldod a csónakot, és az éljenző tömeget nézve azon gondolkozol,
 vajon visszatérsz-e ide valaha is?"""
-        y = raw_input('> ')
-        return '1'
+        this_scene = Action()
+        this_scene.end_turn('1')
 
 class Scene_1(Scene):
 
@@ -137,7 +137,6 @@ class Scene_2(Scene):
 A Sámán három dióhéjat tesz le eléd a földre, és közli, hogy az egyik alatt egy
 gyöngyszemet rejtett el. Meg kell mondanod, melyik alatt van.
 \nTedd próbára a Szerencsédet!\n"""
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.luck('358','326')
 
@@ -153,9 +152,8 @@ Elmondod nekik, hogy meg akarod ölni a Gyíkkirályt, ők pedig valamennyien
 felajánlják segítségüket. Megkérdezed, hol van a többi fogoly; erre ők azt
 válaszolják, hogy valamennyien egy mélyebben fekvő tárnában vannak. Megkéred
 a Törpéket, hogy vezessenek oda, amilyen gyorsan csak lehet."""
-        answer = raw_input('> ')
-        return '161'
-
+        this_scene = Action()
+        this_scene.end_turn('161')
 
 class Scene_4(Scene):
 
@@ -163,10 +161,8 @@ class Scene_4(Scene):
         print """
 A vágat fokozatosan kiszélesedik, és klausztrofóbiád csökken.
 Nemsokára útelágazáshoz érsz.
-
-Ha balra akarsz menni: 101
-
-Ha jobbra akarsz menni: 44
+\nHa balra akarsz menni: 101\n
+\nHa jobbra akarsz menni: 44
 """
         this_scene = Action()
         return this_scene.choice('101','44')
@@ -179,10 +175,8 @@ Kardodat beledöföd a Csörgőkígyó sötét fészkébe, és fémesen csengő 
 Teljesen megfeledkezel a Csörgőkígyóról, és kardoddal megpróbálod kipiszkálni a
 lyukból azt a fémtárgyat, amelybe kardod beleütközött. A nap fényében megcsillan
 egy csodálatos, aranyló szárnyú sisak.
-
-Ha a sisakot a fejedre akarod tenni: 292
-
-Ha inkább nem nyúlsz a sisakhoz,
+\nHa a sisakot a fejedre akarod tenni: 292\n
+\nHa inkább nem nyúlsz a sisakhoz,
 és óvatosan elindulsz lefelé a szurdokban, nyugati irányban: 119
 """
         this_scene = Action()
@@ -193,14 +187,12 @@ class Scene_6(Scene):
     def enter(self):
         print """
 Amint megiszod az italt, szédülni kezdesz, de tested erővel telik meg.
-
-Nyertél 1 Ügyesség és 2 Életerő pontot, mert ittál a varázspatak vizéből.
-
+\nNyertél 1 Ügyesség és 2 Életerő pontot, mert ittál a varázspatak vizéből.\n
 Felfrissülve továbbmész a legtávolabbi ajtóhoz... """
         this_scene = Action()
         this_scene.act_att_change('eletero','2')
         this_scene.act_att_change('ugyesseg','1')
-        return '353'
+        this_scene.end_turn('353')
 
 class Scene_7(Scene):
 
@@ -227,8 +219,8 @@ class Scene_8(Scene):
         print """
 Elérsz a kanyarig és lenézel a folyosóra, melyet egy ajtó zár le.
 Ösztönöd azt súgja, hogy felmenj a csigalépcsőn... """
-        y = raw_input('> ')
-        return '82'
+        this_scene = Action()
+        this_scene.end_turn('82')
 
 class Scene_9(Scene):
 
@@ -237,18 +229,16 @@ class Scene_9(Scene):
 Előkapod a vasrudat a hátizsákodból, és beledöföd a félelmetes krokodil pofájába.
 Felpeckelt szájával a vadállat tehetetlen, így nyugodtan elhajózhatsz a tutajodon.
 """
-        y = raw_input('> ')
-        return '390'
+        this_scene = Action()
+        this_scene.end_turn('390')
 
 class Scene_10(Scene):
 
     def enter(self):
         print """
 Olyan sötét van a fúrólyukban, hogy még a kinyújtott kezedet sem látod.
-
-Ha továbbra is erre akarsz lefelé kúszni: 34
-
-Ha inkább visszafordulsz és
+\nHa továbbra is erre akarsz lefelé kúszni: 34\n
+\nHa inkább visszafordulsz és
 a vájatban mész tovább a kézikocsi mellett elhaladva: 321
 """
         this_scene = Action()
@@ -260,8 +250,8 @@ class Scene_11(Scene):
         print """
 A Törpék már elintézték a másik Orkot, és most a segítségedre sietnek.
 Az Orkot egykettőre ártalmatlanná teszik. """
-        y = raw_input('> ')
-        return '121'
+        this_scene = Action()
+        this_scene.end_turn('121')
 
 class Scene_12(Scene):
 
@@ -276,7 +266,7 @@ Ezeket a tárgyakat magadhoz veszed, mielőtt folytatnád utadat északnyugat fe
         this_scene = Action()
         this_scene.item_list_sack('Balta')
         this_scene.item_list_sack('Tekercskötél')
-        return '105'
+        this_scene.end_turn('105')
 
 class Scene_13(Scene):
 
@@ -299,7 +289,6 @@ irányt, de gondosan ügyelsz rá, hogy senki se vegyen észre a kunyhók lakói
 A partra ugrasz, és a fák között kúszva megközelíted a kunyhókat. Amíg az egyik
 kunyhó mögött lapulsz, két magas, páncélt viselő, hüllőhöz hasonló lényt látsz,
 kezükben korbács és görbe kard; ők a Gyíkemberek! """
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.check_bonus_att('uzenet','63','270')
 
@@ -309,22 +298,20 @@ class Scene_15(Scene):
         print """
 Szervezeted elég erős, hogy legyőzze a betegséget, és lázad nemsokára elmúlik.
 Eloldod tutajodat, és elindulsz a folyón fölfelé... """
-        y = raw_input('> ')
-        return '379'
+        this_scene = Action()
+        this_scene.end_turn('379')
 
 class Scene_16(Scene):
 
     def enter(self):
         print """
 Leveszed a hátizsákodat, és ledobod a fa üregébe. Gyorsan bemászol, és vérezve,
-kimerülten nyúlsz el a földön. Meg sem moccansz. 1 Életerő pontot vesztesz."""
+kimerülten nyúlsz el a földön. Meg sem moccansz.
+\n1 Életerő pontot vesztesz.\n
+A következő pillanatban meghallod a melletted elfutó Fejvadászok dübörgő lépteit.
+Tedd próbára a Szerencsédet!"""
         this_scene = Action()
         this_scene.act_att_change('eletero','-1')
-        y = raw_input('> ')
-        print """
-A következő pillanatban meghallod a melletted elfutó Fejvadászok dübörgő lépteit.
-
-Tedd próbára a Szerencsédet!"""
         return this_scene.luck('380','313')
 
 class Scene_17(Scene):
@@ -332,8 +319,8 @@ class Scene_17(Scene):
     def enter(self):
         print """
 Lefelé indulsz a dombról és balra fordulsz, a tűzhányó irányába... """
-        y = raw_input('> ')
-        return '303'
+        this_scene = Action()
+        this_scene.end_turn('303')
 
 class Scene_18(Scene):
 
@@ -345,8 +332,8 @@ Az egyik hirtelen élesen felordít, erre valamennyien eltűnnek a buja bozótba
 Megkönnyebbülten sóhajtasz fel, és folytatod utadat nyugat felé..."""
         this_scene = Action()
         this_scene.act_att_change('ugyesseg','2')
-        y = raw_input('> ')
-        return '7'
+        this_scene = Action()
+        this_scene.end_turn('7')
 
 class Scene_19(Scene):
 
@@ -356,7 +343,6 @@ A vágatnak ez a része olyan, mintha rég nem használták volna. A mennyezetet
 tartó gerendák megrepedeztek, és úgy látod, életveszélyesek. Egy függőlegesen
 lefelé haladó tárna széléhez érsz, mely mögött nem sokkal véget ér a vágat.
 Nincs létra, amelyen lemászhatnál. """
-        y = raw_input('> ')
         this_scene = Action()
         this_scene.check_equipped('csizma','Vörös bőrcsizma','392','246')
 
@@ -366,8 +352,8 @@ class Scene_20(Scene):
         print """
 Csizmáddal széttaposod a másik tojást, mielőtt elindulnál felfelé a tűzhányó
 oldalában, mert a kénmedencén nem tudsz keresztülmenni."""
-        y = raw_input('> ')
-        return '178'
+        this_scene = Action()
+        this_scene.end_turn('178')
 
 class Scene_21(Scene):
 
@@ -399,8 +385,8 @@ class Scene_23(Scene):
 Felkapod a Gyíkember vízzel teli vödrét, hogy elvidd a szomjazó raboknak.
 A vágatban addig mész, míg az kamrává nem szélesedik...
 """
-        y = raw_input('> ')
-        return '223'
+        this_scene = Action()
+        this_scene.end_turn('223')
 
 class Scene_24(Scene):
 
@@ -410,10 +396,8 @@ Egykettőre az aranysárga homokparton teremsz. Néhány szikla áll ki a tenger
 és a part végében egy kis fehér kőházikót pillantasz meg. Elhagyatottnak látszik.
 A teteje beszakadt, a ház roskadozik. A homokban cikcakkban egymást keresztező
 hosszú nyomokat fedezel fel.
-
-Ha a part mentén el akarsz menni a házhoz: 211
-
-Ha inkább visszamászol a sziklákon az öbölbe,
+\nHa a part mentén el akarsz menni a házhoz: 211\n
+\nHa inkább visszamászol a sziklákon az öbölbe,
 és azon át a parton keresztül a másik öbölbe: 33
 """
         this_scene = Action()
@@ -518,8 +502,8 @@ class Scene_32(Scene):
         print """
 Mire megtalálod és kiszabadítod az összes foglyot,
 hatvanhárom bosszúra elszánt hű követőd vezére vagy. """
-        y = raw_input('> ')
-        return '201'
+        this_scene = Action()
+        this_scene.end_turn('201')
 
 class Scene_33(Scene):
 
@@ -528,10 +512,8 @@ class Scene_33(Scene):
 Hamarosan eléred a tengerpartot, de amint meglátod, mi történik ott, gyorsan
 visszaugrasz a sziklák mögé. Hat Kalózt láttok egy evezős csónak körül, amelyet
 valószínűleg ők húztak partra. Ránézel Mungóra, és megbeszélitek, mit tegyetek.
-
-Ha meg akarjátok támadni a Kalózokat: 340
-
-Ha inkább visszamentek az öbölbe,
+\nHa meg akarjátok támadni a Kalózokat: 340\n
+\nHa inkább visszamentek az öbölbe,
 majd onnan a tengerparton át a másik kis öbölbe: 24
 """
         this_scene = Action()
@@ -548,8 +530,8 @@ fencezel. Visszamászol a fúrólyukon, ahonnan szabadon eléred a fővágatot..
 Kimászol a fúrólyukból, és balra fordulsz a vágatban."""
         this_scene = Action()
         this_scene.act_att_change('szerencse','-1')
-        y=raw_input('> ')
-        return '321'
+        this_scene = Action()
+        this_scene.end_turn('321')
 
 class Scene_35(Scene):
 
@@ -560,8 +542,8 @@ Ez komoly figyelmeztetés, de nem tudod, hogy azoknak szól-e, akik belépnek a
 szurdokba, vagy azoknak, akik kifelé igyekeznek onnan, ugyanis a szikla mindkét
 iránnyal pontosan szemben áll. Bár nem akarod az életedet kockáztatni, mégis m
 egragadod a kardod markolatát, és lelopakodsz a szurdokba... """
-        y=raw_input('> ')
-        return '119'
+        this_scene = Action()
+        this_scene.end_turn('119')
 
 class Scene_36(Scene):
 
@@ -585,7 +567,8 @@ rító puha testeket, melyek a lábadhoz tapadnak. Csak amikor valami furcsát
         this_scene = Action()
         this_scene.act_att_change('eletero','-y')
         this_scene.item_dict_sack_neg('Kaja','y')
-        return '280'
+        this_scene = Action()
+        this_scene.end_turn('280')
 
 class Scene_38(Scene):
 
@@ -593,8 +576,8 @@ class Scene_38(Scene):
         print """
 Úgy látszik, a Gyíkember süket, mert nem hallotta meg leejtett kardod csörrenését,
 és továbbmegy a vágatban. Felkapod a kardodat, és utána lopakodsz..."""
-        y=raw_input('> ')
-        return '51'
+        this_scene = Action()
+        this_scene.end_turn('51')
 
 class Scene_39(Scene):
 
@@ -641,8 +624,7 @@ Folytatod utadat a lábnyomokat követve...'''
         this_scene = Action()
         this_scene.bonus_att_change('uzenet')
         this_scene.item_list_sack('Aranyrog')
-        y = raw_input('> ')
-        return '325'
+        this_scene.end_turn('325')
 
 class Scene_42(Scene):
 
@@ -669,8 +651,8 @@ class Scene_44(Scene):
 Hamarosan egy újabb elágazáshoz érsz. Amint balra tekintesz, a vágat
 végében megpillantod a napfényt, és eszedbe jut, hogy ott van a bejárat.
 Úgy döntesz, hogy egyenesen odamész..."""
-        y = raw_input('> ')
-        return '274'
+        this_scene = Action()
+        this_scene.end_turn('274')
 
 class Scene_45(Scene):
 
@@ -712,8 +694,8 @@ balról meg egy másik vágat bejáratát látod. Egy függőlegesen lefelé hal
 akna széléhez érsz, melynek oldalához egy falétrát támasztottak. Lenézel az
 akna mélyére. Bár nem látod a fenekét, mégis úgy döntesz, hogy lemászol a létrán.
 """
-        y = raw_input('> ')
-        return '315'
+        this_scene = Action()
+        this_scene.end_turn('315')
 
 class Scene_48(Scene):
 
@@ -726,7 +708,6 @@ fej követ. A vadállat beleszimatol a levegőbe, majd ösztönösen a torkodnak
 Szerencsétlenségedre épp egy szörnyű fenevad fészkébe botlottál bele:
 a Borotvafogú arra termett, hogy más élőlényeket elpusztítson...
 """
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.check_equipped('sisak','Sog','56','304')
 
@@ -739,8 +720,8 @@ utadat nyugat felé. Fokozatosan szilárdul a talaj a lábad
 alatt, és nemsokára túljutsz a mocsáron. Veled szemben két
 hegy emelkedik, és úgy döntesz, hogy a közöttük húzódó szur-
 dokban mész tovább."""
-        y = raw_input('> ')
-        return '362'
+        this_scene = Action()
+        this_scene.end_turn('362')
 
 class Scene_50(Scene):
 
@@ -761,8 +742,8 @@ tudja elkerülni, hogy a nehéz követ a fejéhez ne vágd. Amikor elterül a f�
 kiragadod a kezéből a vödröt, remélve, hogy abban víz van, amit odaadhatsz a
 szomjazó foglyoknak. Addig mész a vágatban, amíg egy nagyobb terembe nem érkezel...
 """
-        y = raw_input('> ')
-        return '223'
+        this_scene = Action()
+        this_scene.end_turn('223')
 
 class Scene_52(Scene):
 
@@ -771,7 +752,8 @@ class Scene_52(Scene):
 Az Óriásdarázs fullánkjában lévő méreg bénítóan hat rád..."""
         this_scene = Action()
         this_scene.act_att_change('ugyesseg','-1')
-        return '141'
+        this_scene = Action()
+        this_scene.end_turn('141')
 
 class Scene_53(Scene):
 
@@ -874,7 +856,6 @@ De mielőtt a segítségére siethetnél, a kapitány hirtelen előrelendül, é
 szegény Mungó mellét. Az gyötrelmesen feljajdul, majd összeesik. A kapitány
 feléd fordul, arcán torz mosoly ül, mely a bal orcáján végighúzódó hosszú fekete
 sebhelytől származik. Rátámadsz a kapitányra, hogy bosszút állj Mungón. """
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.battle(10,6,'Kalózkapitány',0,'165')
 
@@ -884,8 +865,8 @@ class Scene_62(Scene):
         print """
 A dárda elzúg melletted, és a Hobgoblin pánikszerűen elmenekül.
 Átmész a hídon, a szakadék másik oldalára..."""
-        y = raw_input('> ')
-        return '139'
+        this_scene = Action()
+        this_scene.end_turn('139')
 
 class Scene_63(Scene):
 
@@ -927,8 +908,8 @@ class Scene_66(Scene):
 Felkapod a Törzsfőnök dárdáját, és visszafutsz a dzsungelba, ahonnan jöttél.
 Hamarosan messze kerülsz a Fejvadászok településétől. Lassítasz, már nem kell
 rohannod. Ismét magadra maradtál"""
-        y = raw_input('> ')
-        return '113'
+        this_scene = Action()
+        this_scene.end_turn('113')
 
 class Scene_67(Scene):
 
@@ -940,8 +921,8 @@ A próbán azonban megbuktál, és a Sámán nem fogja elárulni neked titkát.
 arra van, valamint azt is, hogy a Goncsonggal az ő segítsége nélkül kell meg-
 küzdened. Megfordulsz, és elindulsz lefelé a tűzhányó oldalában, a Gyíkkirály
 erődítményéhez... """
-        y = raw_input('> ')
-        return '168'
+        this_scene = Action()
+        this_scene.end_turn('168')
 
 class Scene_68(Scene):
 
@@ -965,8 +946,8 @@ Az öreg tolvaj felpattan, és még magasabbra mászik a fán, miközben hangosa
 kozódik. Nagyon fürge, így karddal a kezedben meg a hátizsákodat cipelve képte-
 len vagy elérni. Úgy döntesz, hogy magára hagyod, lemászol az indán, és folyta-
 tod az utadat északnyugati irányba..."""
-        y = raw_input('> ')
-        return '375'
+        this_scene = Action()
+        this_scene.end_turn('375')
 
 class Scene_70(Scene):
 
@@ -999,8 +980,8 @@ Az írás egy kérés, mely a Sámántól származik, akit éppen keresel. Azt k
 hogy keress egy madártollat, és tűzd a hajadba, ha békés szándék vezet hozzá.
 Kíváncsi vagy, vajon honnan tudja a Sámán, hogy őt keresed, de úgy döntesz,
 szükséged lesz arra a tollra. Elindulsz, hogy keress egyet..."""
-        y = raw_input()
-        return '30'
+        this_scene = Action()
+        this_scene.end_turn('30')
 
 class Scene_73(Scene):
 
@@ -1018,8 +999,8 @@ class Scene_74(Scene):
         print """
 A feléd tartó Gyíkember nem fog gyanút, és a
 Törpék csapatával nyugodtan elvonulhatsz..."""
-        y = raw_input('> ')
-        return '114'
+        this_scene = Action()
+        this_scene.end_turn('114')
 
 class Scene_75(Scene):
 
@@ -1197,7 +1178,6 @@ class Scene_88(Scene):
 Elhatározod, hogy tutajt építesz magadnak, és elindulsz a folyón fölfelé.
 A folyó elég sekély, így minden nehézség nélkül átgázolhatsz rajta; hogy
 a túlsó partjáról néhány kisebb fát szerezz..."""
-        y = raw_input()
         this_scene = Action()
         return this_scene.check_item_list_sack('Balta','179','305')
 
@@ -1208,10 +1188,10 @@ class Scene_89(Scene):
 Odamész a sirályhoz, és kihúzol egy tollat a szárnyából. Hátizsákodból
 egy darab spárgát veszel elő, s ezzel kötöd a tollat hátul a hajadhoz.
 Óvatosan, kissé szorongva mész tovább..."""
-        y = raw_input('> ')
         this_scene = Action()
         this_scene.bonus_att_change('siraly_toll')
-        return '269'
+        this_scene = Action()
+        this_scene.end_turn('269')
 
 class Scene_90(Scene):
 
@@ -1222,11 +1202,11 @@ Az öreg egy összetekert drótdarabkát vesz elő a zsebéből, és átnyújtja
 kulcsnak használtam, hogy megszabaduljak a bilincseimtől, mielőtt megszöktem
 volna a bányából. Még hasznát veheted, ha fogságba kerülsz! - Megköszönöd az
 öregnek az ajándékot, és az indán lekúszva tovább folytatod utadat északnyugati irányban..."""
-        y = raw_input('> ')
         this_scene = Action()
         this_scene.item_dict_sack_neg('Kaja','3')
         this_scene.item_list_sack('Tolvajkulcs')
-        return '375'
+        this_scene = Action()
+        this_scene.end_turn('375')
 
 class Scene_91(Scene):
 
@@ -1234,8 +1214,8 @@ class Scene_91(Scene):
         print """
 Amint a mutáns (alakváltoztató) és a fogoly elhagyták a laboratóriumot,
 előmászol a lóca alól, és a nyitott ajtón át továbbmész..."""
-        y = raw_input('> ')
-        return '180'
+        this_scene = Action()
+        this_scene.end_turn('180')
 
 class Scene_92(Scene):
 
@@ -1291,8 +1271,8 @@ class Scene_96(Scene):
 Várod a többi pigmeus támadását, de ők egyszerűen felkapják halott társukat, és
 némán eltűnnek a dzsungel rengetegében.
 \nIsmét egyedül maradtál, s folytatod utadat nyugat felé..."""
-        y = raw_input('> ')
-        return '7'
+        this_scene = Action()
+        this_scene.end_turn('7')
 
 class Scene_97(Scene):
 
@@ -1332,8 +1312,8 @@ majd a kész tutajt vízre bocsátod..."""
         y = raw_input('> ')
         print """
  Egy hosszú, vékony bottal lökve magadat fölfelé indulsz a folyón."""
-        y = raw_input('> ')
-        return '387'
+        this_scene = Action()
+        this_scene.end_turn('387')
 
 class Scene_100(Scene):
 
@@ -1394,7 +1374,8 @@ van belőle) tönkrement, ehetetlenné vált. A felszerelésed többi része vis
 nem sérült meg. Nincs más választásod, mint hogy gyalog folytasd utadat..."""
         this_scene = Action()
         this_scene.item_dict_sack('Kaja',0)
-        return '197'
+        this_scene = Action()
+        this_scene.end_turn('197')
 
 class Scene_105(Scene):
 
@@ -1418,15 +1399,14 @@ együtt. A lány visszafogja a Tigrist, és furcsa hangokat hallatva nyugalomra
 inti. Az láthatóan engedelmeskedik neki, úgyhogy lassan hátrálsz, nehogy meg-
 riaszd. Mikor tisztes távolságba kerülsz tőlük, gyorsan a völgy felé indulsz,
 hogy megkeresd a kiszabadított foglyokat..."""
-        y = raw_input('> ')
-        return '279'
+        this_scene = Action()
+        this_scene.end_turn('279')
 
 class Scene_107(Scene):
 
     def enter(self):
         print """
 A szikladarabok esőként zúdulnak alá, s az egyik eltalál..."""
-        y = raw_input('> ')
         this_scene = Action()
         return this_scene.dice_3('210','336','245')
 
